@@ -5,6 +5,11 @@ const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
 
 export const updateSession = async (request: NextRequest) => {
+  if (!supabaseUrl || !supabaseKey) {
+    console.warn('Supabase environment variables are missing. Skipping session refresh.')
+    return NextResponse.next({ request })
+  }
+
   let supabaseResponse = NextResponse.next({ request })
 
   const supabase = createServerClient(supabaseUrl!, supabaseKey!, {
@@ -20,6 +25,10 @@ export const updateSession = async (request: NextRequest) => {
     },
   })
 
-  await supabase.auth.getUser()
+  const { error } = await supabase.auth.getUser()
+  if (error) {
+    console.warn('Supabase auth refresh warning:', error.message)
+  }
+
   return supabaseResponse
 }

@@ -18,6 +18,10 @@ NEXT_PUBLIC_SUPABASE_URL=https://hurizdnsjevcshiwfzcj.supabase.co
 NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_yKJNSoOCPWKPrIVMMgRV3w_jHb07VBh
 ```
 
+If these are missing in Vercel, the deployed app can fail with a `500` error. After adding or changing env variables, redeploy the project.
+
+This project uses `proxy.ts` for Supabase session refresh because newer Next.js versions deprecate the old `middleware.ts` convention.
+
 ## Database setup
 
 1. Open your Supabase project.
