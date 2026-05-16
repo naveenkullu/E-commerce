@@ -1,0 +1,10 @@
+# Protect product files from direct access
+# Files should only be downloadable through the secure download system
+
+Order Deny,Allow
+Deny from all
+
+# Allow access only from PHP scripts
+<FilesMatch "\.(php)$">
+    Allow from all
+</FilesMatch>

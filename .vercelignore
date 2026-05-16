@@ -1,0 +1,11 @@
+tempCodeRunnerFile.c
+tempCodeRunnerFile.exe
+rowCount()
+.git
+.vercel
+node_modules
+*.php
+admin/
+api/
+includes/
+config/

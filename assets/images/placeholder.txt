@@ -1,0 +1,7 @@
+This directory is for storing site images like logo, favicon, etc.
+
+Add your custom images here:
+- logo.png (Site logo)
+- favicon.ico (Browser favicon)
+- hero-bg.jpg (Hero section background)
+- etc.
